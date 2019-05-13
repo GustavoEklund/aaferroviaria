@@ -1,0 +1,25 @@
+{
+  "name": "aaferroviaria",
+  "version": "1.0.0",
+  "description": "Site Associação Atlética Ferroviária",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "keywords": [
+    "aaferroviaria",
+    "ferroviaria",
+    "ferro"
+  ],
+  "author": "Gustavo Eklund",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.0",
+    "photoswipe": "^4.1.3",
+    "popper.js": "^1.14.7"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1"
+  }
+}

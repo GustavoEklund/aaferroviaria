@@ -1,0 +1,549 @@
+/*[~]================[~]*/
+/*[~]===[ Header ]===[~]*/
+/*[~]================[~]*/
+
+.cd-morph-dropdown {
+    top: 0;
+    left: 0;
+    height: 96px !important;
+    width: 100%;
+    padding: 8px;
+    z-index: 16;
+    background-image: url(../img/header.jpg);
+    background-size: cover;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+}
+
+.cd-morph-dropdown::before {
+    /* never visible - used in JS to check mq */
+    content: 'mobile';
+    display: none;
+}
+
+.cd-morph-dropdown .nav-trigger {
+    /* menu icon - visible on small screens only */
+    position: absolute;
+    right: 0;
+    height: 80px;
+    width: 60px;
+    /* replace text with icon */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    color: transparent;
+}
+
+.cd-morph-dropdown .nav-trigger span,
+.cd-morph-dropdown .nav-trigger span::after,
+.cd-morph-dropdown .nav-trigger span::before {
+    /* these are the 3 lines of the menu icon */
+    position: absolute;
+    background-color: #1A1A1A;
+    height: 3px;
+    width: 26px;
+}
+
+.cd-morph-dropdown .nav-trigger span {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+.cd-morph-dropdown .nav-trigger span::after,
+.cd-morph-dropdown .nav-trigger span::before {
+    content: '';
+    left: 0;
+    -webkit-transition: -webkit-transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+}
+
+.cd-morph-dropdown .nav-trigger span::before {
+    -webkit-transform: translateY(-9px);
+    -ms-transform: translateY(-9px);
+    transform: translateY(-9px);
+}
+
+.cd-morph-dropdown .nav-trigger span::after {
+    -webkit-transform: translateY(9px);
+    -ms-transform: translateY(9px);
+    transform: translateY(9px);
+}
+
+.cd-morph-dropdown.nav-open .nav-trigger span {
+    background-color: transparent;
+}
+
+.cd-morph-dropdown.nav-open .nav-trigger span::before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cd-morph-dropdown.nav-open .nav-trigger span::after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.cd-morph-dropdown .main-nav {
+    display: none;
+}
+
+.cd-morph-dropdown .morph-dropdown-wrapper {
+    display: none;
+    position: absolute;
+    top: 106px;
+    left: 2.5%;
+    width: 95%;
+    padding: 1.2em 5%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    background-color: #FFFFFF;
+    z-index: 999;
+}
+
+.cd-morph-dropdown.nav-open .morph-dropdown-wrapper {
+    display: block;
+}
+
+/*[~]==========================[~]*/
+/*[~]===[ Dropdown Content ]===[~]*/
+/*[~]==========================[~]*/
+
+.cd-morph-dropdown .dropdown-list > ul > li {
+    margin-bottom: 3.3em;
+}
+
+.dropdown-list > ul > li {
+    list-style: none;
+}
+
+.dropdown-list > ul {
+    padding-left: 0;
+}
+
+.cd-morph-dropdown .label {
+    display: block;
+    font-size: 2.2rem;
+    color: #1A1A1A;
+    margin-bottom: .8em;
+    text-decoration: none;
+    border-bottom: 3px solid #1b1e21;
+}
+
+.cd-morph-dropdown .content li::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.content ul {
+    list-style: none;
+}
+
+.cd-morph-dropdown .the-club .content .list-group li,
+.cd-morph-dropdown .about .content .list-group li,
+.cd-morph-dropdown .contact .content .list-group li,
+.cd-morph-dropdown .home .content .list-group li,
+.cd-morph-dropdown .schedule .content .list-group li {
+    width: 100%;
+}
+
+.cd-morph-dropdown .the-club .content a,
+.cd-morph-dropdown .about .content a,
+.cd-morph-dropdown .contact .content a,
+.cd-morph-dropdown .home .content a,
+.cd-morph-dropdown .schedule .content a {
+    text-decoration: none;
+}
+
+.cd-morph-dropdown .the-club .content a::before,
+.cd-morph-dropdown .about .content a::before,
+.cd-morph-dropdown .contact .content a::before,
+.cd-morph-dropdown .home .content a::before,
+.cd-morph-dropdown .schedule .content a::before {
+    /* icon on the left */
+    content: '';
+    display: inline-block;
+    float: left;
+    height: 54px;
+    width: 54px;
+    margin-right: .6em;
+    border-radius: 50%;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.04);
+    -webkit-transition: background .2s;
+    transition: background .2s ease-in-out, border-radius .2s ease-in-out, box-shadow .15s ease-in-out, transform .35s ease-in-out, margin-left .2s ease-in-out;
+}
+
+.cd-morph-dropdown .the-club .content a:hover::before,
+.cd-morph-dropdown .about .content a:hover::before,
+.cd-morph-dropdown .contact .content a:hover::before,
+.cd-morph-dropdown .home .content a:hover::before,
+.cd-morph-dropdown .schedule .content a:hover::before {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transform: scale(1.05);
+    margin-left: 15px;
+    background-size: 54px;
+}
+
+/*[~]========================[~]*/
+/*[~]===[ Dropdown Icons ]===[~]*/
+/*[~]========================[~]*/
+
+/********/
+/* Home */
+/********/
+.cd-morph-dropdown .home li:nth-of-type(1) a::before {
+    background: #FDFDFD url(../img/home.svg) center no-repeat;
+    background-size: 40px;
+}
+
+/************/
+/* The Club */
+/************/
+.cd-morph-dropdown .the-club li:nth-of-type(1) a::before {
+    background: #FDFDFD url(../img/digital-map.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .the-club li:nth-of-type(2) a::before {
+    background: #FDFDFD url(../img/open-plane.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .the-club li:nth-of-type(3) a::before {
+    background: #FDFDFD url(../img/corner.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .the-club li:nth-of-type(4) a::before {
+    background: #FDFDFD url(../img/image-gallery.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .the-club li:nth-of-type(5) a::before {
+    background: #FDFDFD url(../img/agreement.svg) center no-repeat;
+    background-size: 40px;
+}
+
+/*********/
+/* About */
+/*********/
+.cd-morph-dropdown .about li:nth-of-type(1) a::before {
+    background: #FDFDFD url(../img/history.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .about li:nth-of-type(2) a::before {
+    background: #FDFDFD url(../img/boss.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .about li:nth-of-type(3) a::before {
+    background: #FDFDFD url(../img/collaboration.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .about li:nth-of-type(4) a::before {
+    background: #FDFDFD url(../img/chat.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .about li:nth-of-type(4) a::before {
+    background: #FDFDFD url(../img/chat.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .about li:nth-of-type(5) a::before {
+    background: #FDFDFD url(../img/contract.svg) center no-repeat;
+    background-size: 40px;
+}
+
+/***********/
+/* Contact */
+/***********/
+.cd-morph-dropdown .contact li:nth-of-type(1) a::before {
+    background: #FDFDFD url(../img/telephone.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .contact li:nth-of-type(2) a::before {
+    background: #FDFDFD url(../img/contacts.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .contact li:nth-of-type(3) a::before {
+    background: #FDFDFD url(../img/user.svg) center no-repeat;
+    background-size: 40px;
+}
+
+/************/
+/* Schedule */
+/************/
+.cd-morph-dropdown .schedule li:nth-of-type(1) a::before {
+    background: #FDFDFD url(../img/schedule.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.cd-morph-dropdown .links .content > ul > li {
+    margin-top: 1em;
+}
+
+.cd-morph-dropdown .links-list a,
+.cd-morph-dropdown .btn {
+    display: block;
+    margin-left: 14px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.cd-morph-dropdown .content h2 {
+    color: #a6a6a6;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 20px 0 10px 14px;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .cd-morph-dropdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .cd-morph-dropdown::before {
+        content: 'desktop';
+    }
+
+    .cd-morph-dropdown .nav-trigger {
+        display: none;
+    }
+
+    .cd-morph-dropdown .main-nav {
+        display: inline-block;
+        float: left;
+    }
+
+    .cd-morph-dropdown .main-nav > ul > li {
+        display: inline-block;
+        float: left;
+    }
+
+    .cd-morph-dropdown .main-nav > ul > li > a {
+        color: #212529;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 30px 15px;
+        display: block;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition: opacity .2s;
+        transition: opacity .2s;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .main-nav > ul > li > a {
+        /* main navigation hover effect - on hover, reduce opacity of elements not hovered over */
+        opacity: .6;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .main-nav > ul > li.active > a {
+        opacity: 1;
+    }
+
+    .cd-morph-dropdown .morph-dropdown-wrapper {
+        /* dropdown wrapp. - used to create the slide up/slide down effect when dropdown is revealed/hidden */
+        display: block;
+        top: 70px;
+        /* overwrite mobile style */
+        padding: 0;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        background-color: transparent;
+        left: 0;
+        width: 100%;
+        /* Force Hardware acceleration */
+        -webkit-transform: translate(0, 20);
+        will-change: transform;
+        -ms-transform: translateY(20px);
+            transform: translate(0, 20px);
+        -webkit-transition: -webkit-transform .3s;
+                transition: -webkit-transform .3s, transform .3s;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .morph-dropdown-wrapper {
+        -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+                transform: translateY(0);
+    }
+
+    .cd-morph-dropdown .dropdown-list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform, width, height;
+        -webkit-transition: visibility .3s;
+        transition: visibility .3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .no-csstransitions .cd-morph-dropdown .dropdown-list {
+        display: none;
+    }
+
+    .cd-morph-dropdown .dropdown-list::before {
+        /* dropdown top triangle */
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        right: auto;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        height: 0;
+        width: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #FFFFFF;
+        opacity: 0;
+        -webkit-transition: opacity .3s;
+        transition: opacity .3s;
+    }
+
+    .cd-morph-dropdown .dropdown-list > ul {
+        border-radius: 10px !important;
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        background-color: #FDFDFD;
+        overflow: hidden;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .dropdown-list {
+        visibility: visible;
+        -webkit-transition: width .3s, height .3s, -webkit-transform .3s;
+        transition: width .3s, height .3s, -webkit-transform .3s, transform .3s;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .dropdown-list::before {
+        opacity: 1;
+    }
+
+    .cd-morph-dropdown .dropdown {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        -webkit-transition: opacity .3s, visibility .3s;
+        transition: opacity .3s, visibility .3s;
+    }
+
+    .cd-morph-dropdown .dropdown.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .cd-morph-dropdown .dropdown.move-left .content {
+        -webkit-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+
+    .cd-morph-dropdown .dropdown.move-right .content {
+        -webkit-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    .cd-morph-dropdown .label {
+        /* hide the label on bigger devices */
+        display: none;
+    }
+
+    .cd-morph-dropdown .content {
+        padding: 2.2em 1.8em;
+        -webkit-transition: -webkit-transform .3s;
+        transition: -webkit-transform .3s;
+        transition: transform .3s, -webkit-transform .3s;
+        text-align: left;
+    }
+
+    .cd-morph-dropdown .content > ul::after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+
+    .cd-morph-dropdown .content > ul > li {
+        width: 48%;
+        float: left;
+        margin-right: 4%;
+        margin-top: 0;
+    }
+
+    .cd-morph-dropdown .content > ul > li:nth-of-type(2n) {
+        margin-right: 0;
+    }
+
+    .cd-morph-dropdown .the-club .content,
+    .cd-morph-dropdown .about .content,
+    .cd-morph-dropdown .contact .content {
+        /* needs to set a width for the .content elements because they have a position absolute */
+        width: 400px;
+        padding-bottom: .8em;
+    }
+
+    .cd-morph-dropdown .the-club .content li {
+    }
+
+    .cd-morph-dropdown .links .content > ul > li {
+        margin-top: 0;
+    }
+
+    .cd-morph-dropdown .links .content,
+    .cd-morph-dropdown .button .content {
+        width: 390px;
+    }
+
+    .cd-morph-dropdown .bg-layer {
+        /* morph dropdown background */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 1px;
+        background: none;
+        opacity: 0;
+        -webkit-transition: opacity .3s;
+        transition: opacity .3s;
+        -webkit-transform-origin: top left;
+        -ms-transform-origin: top left;
+        transform-origin: top left;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .cd-morph-dropdown.is-dropdown-visible .bg-layer {
+        opacity: 1;
+        -webkit-transition: opacity .3s, -webkit-transform .3s;
+        transition: opacity .3s, -webkit-transform .3s, transform .3s, opacity .3s;
+    }
+}
