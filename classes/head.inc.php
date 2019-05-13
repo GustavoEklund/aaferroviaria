@@ -145,7 +145,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="files/convenio-saude-atualizado-11.04.18.pdf">
                                             <h4 class="lead text-dark font-weight-bold">Convênios</h4>
                                             <p>Descontos em clínicas</p>
                                         </a>

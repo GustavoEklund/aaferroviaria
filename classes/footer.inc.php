@@ -718,10 +718,10 @@
                         <p class="lead font-weight-bold text-uppercase">O Clube</p>
                         <ul class="list-group footer-nav-the-club">
                             <li>
-                                <a href="#"><br><h4 class="lead text-dark font-weight-bold">Localização</h4></a>
+                                <a href="#" data-toggle="modal" data-target="#localizacao"><br><h4 class="lead text-dark font-weight-bold">Localização</h4></a>
                             </li>
                             <li>
-                                <a href="#"><br><h4 class="lead text-dark font-weight-bold">Infraestrutura</h4></a>
+                                <a href="infraestrutura"><br><h4 class="lead text-dark font-weight-bold">Infraestrutura</h4></a>
                             </li>
                             <li>
                                 <a href="modalidades"><br><h4 class="lead text-dark font-weight-bold">Modalidades</h4></a>
@@ -730,7 +730,7 @@
                                 <a href="#"><br><h4 class="lead text-dark font-weight-bold">Fotos</h4></a>
                             </li>
                             <li>
-                                <a href="#"><br><h4 class="lead text-dark font-weight-bold">Convênios</h4></a>
+                                <a href="files/convenio-saude-atualizado-11.04.18.pdf"><br><h4 class="lead text-dark font-weight-bold">Convênios</h4></a>
                             </li>
                         </ul>
                     </div>
@@ -762,10 +762,10 @@
                         <p class="lead font-weight-bold text-uppercase">Contato</p>
                         <ul class="list-group footer-nav-contact">
                             <li>
-                                <a href="#"><br><h4 class="lead text-dark font-weight-bold">Ouvidoria</h4></a>
+                                <a href="contato#ouvidoria"><br><h4 class="lead text-dark font-weight-bold">Ouvidoria</h4></a>
                             </li>
                             <li>
-                                <a href="#"><br><h4 class="lead text-dark font-weight-bold">Contatos</h4></a>
+                                <a href="contato#"><br><h4 class="lead text-dark font-weight-bold">Contatos</h4></a>
                             </li>
                             <li>
                                 <a href="#"><br><h4 class="lead text-dark font-weight-bold">Associe-se</h4></a>
